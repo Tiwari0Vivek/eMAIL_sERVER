@@ -92,7 +92,8 @@ def handle_contact_form():
         print(f"An unexpected error occurred: {e}")
         return jsonify({"success": False, "message": "An unexpected server error occurred."}), 500
 
-
 if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 8000))
+    app.run(host="0.0.0.0", port=port, debug=True)
 
-    app.run(debug=True)
+
